@@ -63,9 +63,11 @@ fs.readdirSync(__dirname + "/models").forEach((filename) => {
 const auth = require("./routes/auth")
 const user = require("./routes/user")
 const item = require("./routes/item")
+const upload = require("./routes/upload")
 app.use("/auth", auth)
 app.use("/user", user)
 app.use("/item", item)
+app.use("/upload", upload)
 // ------------------------------------------------------
 
 app.listen(3000, () => {

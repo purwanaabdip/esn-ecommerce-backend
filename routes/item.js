@@ -20,7 +20,15 @@ response.api = appVer
 // Item routes (/item)
 // ---------------------------------
 router.get("/", (req, res) => {
-	Item.find({"meta.deletedBy": "", "data.itemName" : {$regex : ".*" + req.query.search + ".*", $options: "i"}}, (err, items) => {
+	let searchTerm = req.query.search !== undefined ? req.query.search : ""
+	let query = {
+		"meta.deletedBy": "",
+		"data.itemName" : {
+			$regex : ".*" + searchTerm + ".*",
+			$options: "i"
+		}
+	}
+	Item.find(query, (err, items) => {
 		if (err) {
 			res.send(err)
 		}

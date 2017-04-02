@@ -33,5 +33,15 @@
 		"type": "success",
 		"message": "Successfully deleted",
 		"code": "MDB0004"
+	},
+	"UPL0001": {
+		"type": "success",
+		"message": "Successfully uploaded",
+		"code": "UPL0001"
+	},
+	"UPL0002": {
+		"type": "error",
+		"message": "Upload failed",
+		"code": "UPL0002"
 	}
 }
