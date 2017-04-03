@@ -67,7 +67,7 @@ const upload = require("./routes/upload")
 app.use("/auth", auth)
 app.use("/user", user)
 app.use("/item", item)
-// app.use("/upload", upload)
+app.use("/upload", upload)
 // ------------------------------------------------------
 
 app.listen(process.env.PORT || 3000, () => {
