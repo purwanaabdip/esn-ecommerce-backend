@@ -4,7 +4,7 @@
   "description": "E-Commerce Backend (ExpressJS) Application",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon"
   },
   "author": "Eka Setya Nugraha",
   "license": "ISC",
