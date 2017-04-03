@@ -17,7 +17,7 @@ const cookieParser = require("cookie-parser")
 // Express instantiation
 const app = express()
 // Database connection
-const mongoUrl = "mongodb://kocak:kocak@ds149820.mlab.com:49820/heroku_nbf6w5lt"
+const mongoUrl = "mongodb://localhost/ecommerce"
 mongoose.connect(mongoUrl, (err, res) => {
 	if (err) console.log("Error connecting to database")
 	else console.log("Database connection successful")

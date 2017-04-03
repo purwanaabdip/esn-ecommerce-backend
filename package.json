@@ -4,7 +4,7 @@
   "description": "E-Commerce Backend (ExpressJS) Application",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eka Setya Nugraha",
   "license": "ISC",
@@ -20,10 +20,9 @@
     "multer": "^1.3.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^4.0.0",
-    "nodemon": "^1.11.0"
+    "passport-local-mongoose": "^4.0.0"
   },
-  "engines": {
-    "node": "4.6.0"
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
