@@ -15,9 +15,10 @@ const cookieParser = require("cookie-parser")
 
 // ------------------------------------------------------
 // Express instantiation
+// ------------------------------------------------------
 const app = express()
 // Database connection
-const mongoUrl = "mongodb://localhost/ecommerce"
+const mongoUrl = process.env.NODE_ENV === "test" ? "mongodb://localhost/ecommerce-test" : "mongodb://localhost/ecommerce"
 mongoose.connect(mongoUrl, (err, res) => {
 	if (err) console.log("Error connecting to database")
 	else console.log("Database connection successful")
@@ -44,7 +45,7 @@ passport.deserializeUser(User.deserializeUser())
 // ------------------------------------------------------
 // Environment settings
 // ------------------------------------------------------
-app.use(morgan("dev"))
+if (process.env.NODE_ENV !== "test") app.use(morgan("dev"))
 app.set("port", process.env.PORT || 3000)
 app.use(express.static(path.join(__dirname, "public")))
 app.use(bodyParser.json())
@@ -73,3 +74,8 @@ app.use("/upload", upload)
 app.listen(3000, () => {
 	console.log("Express server started on port 3000")
 })
+
+// ------------------------------------------------------
+// For testing purposes
+// ------------------------------------------------------
+module.exports = app

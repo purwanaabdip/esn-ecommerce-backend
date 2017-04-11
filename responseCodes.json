@@ -14,6 +14,11 @@
 		"message": "Successfully logged out",
 		"code": "ACC0003"
 	},
+	"MDB0000": {
+		"type": "error",
+		"message": "MongoDB Error",
+		"code": "MDB0000"
+	},
 	"MDB0001": {
 		"type": "success",
 		"message": "Successfully fetched",

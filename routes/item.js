@@ -66,20 +66,26 @@ router.put("/", (req, res) => {
   })
 })
 
-router.post("/", (req, res) => {
+router.post("/", ({ body }, res) => {
 	let newItem = {}
-	newItem.meta = meta
-	newItem.data = req.body
-	Item.findOneAndUpdate({"data.itemId": req.body.itemId, "meta.deletedBy": ""}, newItem, {upsert: true, new: true, runValidators: true}, (err, item) => {
-		if (err) {
-			res.send(err)
-		}
-		else {
-			response.data = item.ops
-			response.notification = codeDictionary.MDB0002
-			res.send(response)
-		}
-	})
+	if (body.itemId && body.itemName && body.itemImage && body.itemPrice && body.itemStock && body.itemDescription && body.itemCategory && body.itemGenre) {
+		newItem.meta = meta
+		newItem.data = body
+		Item.findOneAndUpdate({"data.itemId": body.itemId, "meta.deletedBy": ""}, newItem, {upsert: true, new: true, runValidators: true}, (err, item) => {
+			if (err) {
+				response.notification = codeDictionary.MDB0000
+				res.send(response)
+			}
+			else {
+				response.data = item.ops
+				response.notification = codeDictionary.MDB0002
+				res.send(response)
+			}
+		})
+	} else {
+		response.notification = codeDictionary.MDB0000
+		res.send(response)
+	}
 })
 
 module.exports = router
